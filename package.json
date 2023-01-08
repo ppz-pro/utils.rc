@@ -1,0 +1,23 @@
+{
+  "name": "@ppzp/hooks",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppz-pro/hooks.react.git"
+  },
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "author": "gy",
+  "license": "UNLICENSE",
+  "bugs": {
+    "url": "https://github.com/ppz-pro/hooks.react/issues"
+  },
+  "homepage": "https://github.com/ppz-pro/hooks.react#readme",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}
