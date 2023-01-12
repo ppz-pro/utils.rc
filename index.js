@@ -5,7 +5,7 @@ exports.useFlag = function() {
   const [flag, setFlag] = useState(0)
   return [
     flag,
-    () => setFlag(flag + 1)
+    () => setFlag(flag => flag + 1)
   ]
 }
 
