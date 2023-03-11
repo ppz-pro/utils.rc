@@ -1,23 +1,24 @@
 {
-  "name": "@ppzp/hooks",
-  "version": "0.0.1",
+  "name": "utils.rc",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ppz-pro/hooks.react.git"
+    "url": "git+https://github.com/ppz-pro/utils.rc.git"
   },
   "keywords": [
-    "react",
-    "hooks"
+    "ppz"
   ],
-  "author": "gy",
-  "license": "UNLICENSE",
+  "author": "gy0318",
+  "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/ppz-pro/hooks.react/issues"
+    "url": "https://github.com/ppz-pro/utils.rc/issues"
   },
-  "homepage": "https://github.com/ppz-pro/hooks.react#readme",
   "peerDependencies": {
     "react": ">=16.8.0"
-  }
+  },
+  "homepage": "https://github.com/ppz-pro/utils.rc#readme"
 }
