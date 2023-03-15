@@ -1,7 +1,8 @@
-const { useState, useEffect } = require('react')
+import React, { useState, useEffect } from 'react'
 
 /** 返回一个 watch 对象，和更新它的函数 */
-exports.useFlag = function() {
+export
+function useFlag() {
   const [flag, setFlag] = useState(0)
   return [
     flag,
@@ -9,24 +10,34 @@ exports.useFlag = function() {
   ]
 }
 
-/** 给我一个 api，我给你数据 */
-exports.useGetState = function({
-  get, ifGet = true, defaultValue, map,
-  watch = []
-}) {
-  const [flag, update] = exports.useFlag()
-  watch.push(flag)
-  const [state, _setState] = useState(defaultValue)
-  const setState = s => _setState(map ? map(s) : s)
+/** simpler React.render */
+export
+const $ = new Proxy(
+  function(Comp, props, ...children) {
+    if(props instanceof Array || typeof props == 'string' || React.isValidElement(props)) {
+      children.unshift(props)
+      props = null
+    }
+    return React.createElement(Comp, props, ...children)
+  }, {
+  get(_, tagName) {
+    return function() {
+      return _(tagName, ...arguments)
+    }
+  }
+})
 
-  useEffect(() => {
-    if(!ifGet) return
-
-    const res = get()
-    if(res instanceof Promise)
-      res.then(setState)
-    else
-      setState(res)
+/** useEffect but async and no unmount */
+export
+function useEffect2(effect, watch) {
+  useEffect(() => { // 大括号保留！否则会 return effect()
+    effect()
   }, watch)
-  return [state, update] // 单一控制原则，setState 不外传
+}
+
+export
+function useMount(onMount) {
+  useEffect(() => { // 大括号保留！否则会 return onMount()
+    onMount()
+  }, [])
 }
