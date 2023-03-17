@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react'
 import { $ } from '.'
 
 export
@@ -12,6 +13,11 @@ function pushRoute({ path, Page }) {
 }
 
 export
-function pushLazyRoute(route) {
-  // ...
+function pushLazyRoute({ path, Page }) {
+  routes.push({
+    path,
+    element: $(Suspense,
+      $(React.lazy(Page))
+    )
+  })
 }
