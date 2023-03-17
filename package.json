@@ -1,5 +1,5 @@
 {
-  "name": "utils.rc",
+  "name": "@ppzp/utils.rc",
   "version": "0.0.1",
   "description": "PPZ's React utils",
   "main": "index.js",
