@@ -21,6 +21,8 @@ const $ = new Proxy(
     return React.createElement(Comp, props, ...children)
   }, {
   get(_, tagName) {
+    if(tagName == '_')
+      tagName = React.Fragment
     return function() {
       return _(tagName, ...arguments)
     }
