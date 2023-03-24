@@ -29,6 +29,13 @@ const $ = new Proxy(
   }
 })
 
+export
+function $$(Cmp) {
+  return function() {
+    return $(Cmp, ...arguments)
+  }
+}
+
 /** useEffect but async and no unmount */
 export
 function useEffect2(effect, watch) {
