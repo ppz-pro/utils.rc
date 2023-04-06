@@ -38,7 +38,7 @@ function $$(Cmp) {
 
 /** useEffect but async and no unmount */
 export
-function useEffect2(effect, watch) {
+function useEffect2(watch, effect) {
   useEffect(() => { // 大括号保留！否则会 return effect()
     effect()
   }, watch)
