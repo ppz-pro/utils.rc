@@ -50,3 +50,22 @@ function useMount(onMount) {
     onMount()
   }, [])
 }
+
+export
+function classNames() {
+  return Array.from(arguments)
+    .flatMap(className)
+    .filter(className => className).join(' ')
+}
+export { classNames as cns }
+
+function className(target) {
+  if(typeof target == 'string')
+    return target
+  
+  const classNames = []
+  for(let className in target)
+    if(target[className])
+      classNames.push(className)
+  return classNames
+}
