@@ -14,7 +14,7 @@ function useFlag() {
 export
 const $ = new Proxy(
   function(Comp, props, ...children) {
-    if(props instanceof Array || typeof props == 'string' || React.isValidElement(props)) {
+    if(props instanceof Array || isPrimative(props) || React.isValidElement(props)) {
       children.unshift(props)
       props = null
     }
@@ -68,4 +68,9 @@ function className(target) {
     if(target[className])
       classNames.push(className)
   return classNames
+}
+
+/** 判断基本数据类型 */
+function isPrimative(target) {
+  return typeof target != 'object' && typeof target != 'function' || target === null
 }
