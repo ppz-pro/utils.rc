@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 /** 返回一个 watch 对象，和更新它的函数 */
 export
@@ -43,6 +43,13 @@ function useEffect2(watch, effect) {
     effect()
   }, watch)
 }
+
+/** pure callback */
+export
+function useCallback2(fn) {
+  return useCallback(fn, [])
+}
+export { useCallback2 as useCb }
 
 export
 function useMount(onMount) {
