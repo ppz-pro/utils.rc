@@ -44,6 +44,24 @@ function useEffect2(watch, effect) {
   }, watch)
 }
 
+/** useEffect2 but not the first time */
+export
+function useChange(...args) {
+  const watcher = args.pop()
+  if(typeof watcher != 'function')
+    throw Error('bug: useChange must have a last argument as a callback')
+  if(args.length == 0)
+    throw Error('bug: useWatch must have at least one watch')
+  const [isMount, setIsMount] = useState(true)
+  useEffect(() => {
+    if(isMount) {
+      setIsMount(false)
+      return
+    }
+    watcher()
+  }, args)
+}
+
 /** pure callback */
 export
 function useCallback2(fn) {
