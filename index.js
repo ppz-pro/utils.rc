@@ -95,6 +95,18 @@ function className(target) {
   return classNames
 }
 
+/** mount 之后，等待 duration 毫秒 */
+export
+function useWait(duration = 200) {
+  const [value, setValue] = useState(false)
+  useMount(() => {
+    setTimeout(() => {
+      setValue(true)
+    }, duration)
+  })
+  return value
+}
+
 /** 判断基本数据类型 */
 function isPrimative(target) {
   return typeof target != 'object' && typeof target != 'function' || target === null
