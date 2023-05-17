@@ -44,6 +44,18 @@ function useEffect2(watch, effect) {
   }, watch)
 }
 
+export
+function useNotMount(watch, effect) {
+  const [first, setFirst] = useState(true)
+  useEffect2([watch], function exec_effect() {
+    if(first) {
+      setFirst(false)
+      return
+    }
+    effect()
+  })
+}
+
 /** useEffect2 but not the first time */
 export
 function useChange(...args) {
