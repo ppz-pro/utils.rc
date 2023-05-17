@@ -36,6 +36,13 @@ function $$(Cmp) {
   }
 }
 
+/** useState where state is function */
+export
+function useFunctionState(init_fun) {
+  const [f, set_fun] = useState(() => init_fun)
+  return [f, f => set_fun(() => f)]
+}
+
 /** useEffect but async and no unmount */
 export
 function useEffect2(watch, effect) {
