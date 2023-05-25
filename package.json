@@ -1,6 +1,6 @@
 {
   "name": "@ppzp/utils.rc",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "description": "PPZ's React utils",
   "main": "index.js",
   "files": [
@@ -8,8 +8,6 @@
     "use_async_get.js",
     "router.js"
   ],
-  "scripts": {
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ppz-pro/utils.rc.git"

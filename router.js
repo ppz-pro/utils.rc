@@ -5,7 +5,7 @@ export
 const routes = []
 
 export
-function pushRoute({ path, Page }) {
+function push_route({ path, Page }) {
   routes.push({
     path,
     element: $(Page)
@@ -13,7 +13,7 @@ function pushRoute({ path, Page }) {
 }
 
 export
-function pushLazyRoute({ path, Page }) {
+function push_lazy_route({ path, Page }) {
   routes.push({
     path,
     element: $(Suspense,
