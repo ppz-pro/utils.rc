@@ -62,12 +62,12 @@ function match_status(data, _err, status, {
       return handle(status, loaded, 'no loaded', data)
     case status_map.error:
       return handle(status, error, 'no error', _err)
-    default: throw Error(`matcher error: unknown status ${status}`)
+    default: throw Error(`matcher error: unknown status ${status.toString()}`)
   }
 }
 
 function handle(status, handle, msg, result) {
   if(!handle)
-    throw Error(`matcher error on ${status}: ${msg}`)
+    throw Error(`matcher error on ${status.toString()}: ${msg}`)
   return handle(result)
 }
