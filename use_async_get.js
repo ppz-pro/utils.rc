@@ -19,7 +19,6 @@ function useAsyncGet({
 
   const [is_mount, set_is_mount] = useState(true)
   const [reload_flag, set_reload_flag] = useState(0)
-  watch.push(reload_flag)
   
   useEffect(function get_async_data() {
     if(is_mount && !load_on_mount) {
@@ -37,7 +36,7 @@ function useAsyncGet({
         set_status(status_map.error)
         set_error(err)
       })
-  }, watch)
+  }, [...watch, reload_flag])
 
   return {
     match: matcher => match_status(data, error, status, matcher),
