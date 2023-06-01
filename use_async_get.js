@@ -39,6 +39,7 @@ function useAsyncGet({
   }, [...watch, reload_flag])
 
   return {
+    status, // for watch use
     match: matcher => match_status(data, error, status, matcher),
     reload() {
       set_reload_flag(reload_flag + 1)
