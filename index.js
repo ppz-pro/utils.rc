@@ -77,6 +77,15 @@ function useMount(onMount) {
   }, [])
 }
 
+export
+function useIsMount() {
+  const [is_mount, set_is_mount] = useState(true)
+  useMount(function onMount() {
+    set_is_mount(false)
+  })
+  return is_mount
+}
+
 /** 返回一个 watch 对象，和更新它的函数 */
 export
 function useFlag() {
