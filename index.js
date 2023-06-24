@@ -86,6 +86,17 @@ function useIsMount() {
   return is_mount
 }
 
+export
+function useWatch(target, effect) {
+  const [is_mount, set_is_mount] = useState(true)
+  useEffect2(target, () => {
+    if(is_mount)
+      set_is_mount(true)
+    else
+      effect()
+  })
+}
+
 /** 返回一个 watch 对象，和更新它的函数 */
 export
 function useFlag() {
