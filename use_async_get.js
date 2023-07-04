@@ -68,7 +68,7 @@ function match_status(data, _err, status, {
 }
 
 function handle(status, handle, msg, result) {
-  if(!handle)
+  if(handle === undefined)
     throw Error(`matcher error on ${status.toString()}: ${msg}`)
-  return handle(result)
+  return handle instanceof Function ? handle(result) : handle
 }
