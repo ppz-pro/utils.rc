@@ -8,7 +8,7 @@ const status_map = {
 }
 
 export default
-function useAsyncGet({
+function useAsync_get({
   getter,
   load_on_mount = true,
   watch = []
