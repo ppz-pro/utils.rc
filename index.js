@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 export { default as E } from './create_element.js'
+export { default as useAsync_get } from './use_async_get.js'
 
 /** useEffect but async and no unmount */
 export
