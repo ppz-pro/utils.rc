@@ -8,7 +8,7 @@ export default new Proxy(
     }
     return createElement(Comp, Props(props), ...children)
   }, {
-    get(tag_name, ce) {
+    get(ce, tag_name) {
       return function create_tag_element() {
         if(tag_name == '_')
           tag_name = Fragment // 1. Fragment
