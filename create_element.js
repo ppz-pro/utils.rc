@@ -2,7 +2,7 @@ import { createElement, Fragment } from 'react'
 
 export default new Proxy(
   function create_element(Comp, props, ...children) {
-    if(props.constructor != Object) {
+    if(props?.constructor != Object) {
       children.unshift(props)
       props = null
     }
