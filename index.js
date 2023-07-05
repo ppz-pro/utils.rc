@@ -31,7 +31,7 @@ function useWatch(target, effect) {
   const [is_mount, set_is_mount] = useState(true)
   useEffect2(target, () => {
     if(is_mount)
-      set_is_mount(true)
+      set_is_mount(false)
     else
       effect()
   })
