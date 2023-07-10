@@ -31,7 +31,7 @@ function useWatch(target, effect) {
   const [is_mount, set_is_mount] = useState(true)
   useEffect2(target, () => {
     if(is_mount)
-      set_is_mount(false)
+      set_is_mount(false) // bug: 这里好像会执行多次（有可能是开发模式下会立即 unmount 再重新 mount 造成的）
     else
       effect()
   })
