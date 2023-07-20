@@ -11,6 +11,12 @@ function useEffect2(watch, effect) {
 }
 
 export
+function useState2(init_value) {
+  const [value, set] = useState(init_value)
+  return { value, set }
+}
+
+export
 function useMount(on_mount) {
   useEffect(() => { // 大括号保留！否则会 return on_mount()
     on_mount()
