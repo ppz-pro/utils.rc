@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 export { default as E } from './create_element.js'
 export { default as useAsync_get } from './use_async_get.js'
 
@@ -8,6 +8,16 @@ function useEffect2(watch, effect) {
   useEffect(() => { // 大括号保留！否则会 return effect()
     effect()
   }, watch)
+}
+
+export
+function useCallback2(watch, cb) {
+  return useCallback(cb, watch)
+}
+
+export
+function useMemo2(watch, factory) {
+  return useMemo(factory, watch)
 }
 
 export
