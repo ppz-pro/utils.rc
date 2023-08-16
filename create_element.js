@@ -39,6 +39,9 @@ function classnames(plass) {
     return plass
   else if(plass instanceof Array)
     return plass.filter(item => item).map(classnames).join(' ')
+  else if(!plass)
+    return null
+  
   let result = ''
   for(let key in plass)
     if(plass[key])
